@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Perpustakaan Interaktif</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #F0F8FF;
+            --header-bg: #4CAF50; /* Hijau Segar */
+            --text-main: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Bagian Header / Sambutan */
+        .header {
+            background: linear-gradient(135deg, #4CAF50, #8BC34A);
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 3rem 1rem;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            box-shadow: 0 10px 20px rgba(76, 175, 80, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            font-weight: 700;
+        }
+
+        /* Container untuk tombol-tombol menu */
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            width: 90%;
+            max-width: 1000px;
+            padding: 1rem;
+        }
+
+        /* Desain Kartu Menu */
+        .menu-card {
+            background-color: white;
+            border-radius: 25px;
+            padding: 30px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-main);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        /* Efek Hover untuk masing-masing kartu */
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-buku:hover { border-color: #2196F3; }
+        .card-pinjam:hover { border-color: #FFC107; }
+        .card-kembali:hover { border-color: #FF5722; }
+        .card-anggota:hover { border-color: #9C27B0; }
+        .card-absen:hover { border-color: #00BCD4; }
+
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .menu-card h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        /* Tombol Admin di bagian bawah */
+        .admin-section {
+            margin-top: auto;
+            padding: 3rem 1rem 2rem 1rem;
+        }
+
+        .btn-admin {
+            background-color: #607D8B;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s;
+            box-shadow: 0 4px 10px rgba(96, 125, 139, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-admin:hover {
+            background-color: #455A64;
+        }
+
+        /* Responsif untuk layar kecil */
+        @media (max-width: 600px) {
+            .header h1 { font-size: 2rem; }
+            .header p { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>Halo, Selamat Datang!</h1>
+        <p>Mari membaca dan menjelajah dunia ilmu bersama Ezo dan Hera 🚀</p>
+    </header>
+
+    <main class="menu-container">
+        
+        <div class="menu-card card-buku">
+            <div class="icon">📚</div>
+            <h3>Daftar Buku</h3>
+        </div>
+
+        <div class="menu-card card-pinjam">
+            <div class="icon">🎒</div>
+            <h3>Peminjaman</h3>
+        </div>
+
+        <div class="menu-card card-kembali">
+            <div class="icon">📥</div>
+            <h3>Pengembalian</h3>
+        </div>
+
+        <div class="menu-card card-absen">
+            <div class="icon">📝</div>
+            <h3>Absen Anggota</h3>
+        </div>
+
+        <div class="menu-card card-anggota">
+            <div class="icon">👥</div>
+            <h3>Data Anggota</h3>
+        </div>
+
+    </main>
+
+    <footer class="admin-section">
+        <button class="btn-admin">
+            <span>⚙️</span> Halaman Admin
+        </button>
+    </footer>
+
+</body>
+</html>
