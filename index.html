@@ -3,182 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Perpustakaan Interaktif</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+    <title>Portal Perpustakaan Modern</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         :root {
-            --bg-color: #F0F8FF;
-            --header-bg: #4CAF50; /* Hijau Segar */
-            --text-main: #333333;
+            --bg-body: #F4F7FE;
+            --white: #FFFFFF;
+            --text-dark: #2B3674;
+            --text-light: #A3AED0;
+            --primary: #4318FF;
+            --hover-color: #F4F7FE;
         }
 
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
-            font-family: 'Nunito', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
+            background-color: var(--bg-body);
+            color: var(--text-dark);
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
         }
 
-        /* Bagian Header / Sambutan */
-        .header {
-            background: linear-gradient(135deg, #4CAF50, #8BC34A);
-            color: white;
+        /* Header Area */
+        .top-header {
             width: 100%;
+            padding: 40px 20px;
             text-align: center;
-            padding: 3rem 1rem;
-            border-bottom-left-radius: 40px;
-            border-bottom-right-radius: 40px;
-            box-shadow: 0 10px 20px rgba(76, 175, 80, 0.2);
-            margin-bottom: 2rem;
+            margin-bottom: 20px;
         }
 
-        .header h1 {
-            margin: 0;
-            font-size: 2.8rem;
-            font-weight: 800;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .header p {
-            font-size: 1.2rem;
-            margin-top: 10px;
+        .top-header h1 {
+            font-size: 2.2rem;
             font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
         }
 
-        /* Container untuk tombol-tombol menu */
-        .menu-container {
+        .top-header p {
+            color: var(--text-light);
+            font-size: 1rem;
+            font-weight: 400;
+            margin-top: 5px;
+        }
+
+        /* Container Menu Grid */
+        .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
             width: 90%;
-            max-width: 1000px;
-            padding: 1rem;
+            max-width: 1100px;
+            padding: 0 20px 40px 20px;
         }
 
-        /* Desain Kartu Menu */
-        .menu-card {
-            background-color: white;
-            border-radius: 25px;
-            padding: 30px 20px;
-            text-align: center;
-            text-decoration: none;
-            color: var(--text-main);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            border: 3px solid transparent;
+        /* Desain Card Modern */
+        .card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 35px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0px 18px 40px rgba(112, 144, 176, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.5);
             cursor: pointer;
         }
 
-        /* Efek Hover untuk masing-masing kartu */
-        .menu-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0px 25px 50px rgba(112, 144, 176, 0.2);
+            background-color: var(--white);
         }
 
-        .card-buku:hover { border-color: #2196F3; }
-        .card-pinjam:hover { border-color: #FFC107; }
-        .card-kembali:hover { border-color: #FF5722; }
-        .card-anggota:hover { border-color: #9C27B0; }
-        .card-absen:hover { border-color: #00BCD4; }
-
-        .icon {
-            font-size: 4rem;
-            margin-bottom: 15px;
+        .icon-wrapper {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: var(--hover-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
         }
 
-        .menu-card h3 {
-            margin: 0;
-            font-size: 1.3rem;
-            font-weight: 700;
+        .card:hover .icon-wrapper {
+            background-color: var(--primary);
+            color: var(--white);
         }
 
-        /* Tombol Admin di bagian bawah */
-        .admin-section {
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* Floating Admin Button */
+        .admin-wrapper {
             margin-top: auto;
-            padding: 3rem 1rem 2rem 1rem;
+            padding-bottom: 40px;
         }
 
         .btn-admin {
-            background-color: #607D8B;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
+            background-color: var(--white);
+            color: var(--text-dark);
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            box-shadow: 0px 10px 20px rgba(112, 144, 176, 0.15);
+            cursor: pointer;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 10px;
-            transition: background 0.3s;
-            box-shadow: 0 4px 10px rgba(96, 125, 139, 0.3);
-            border: none;
-            cursor: pointer;
+            gap: 12px;
+        }
+
+        .btn-admin i {
+            color: var(--primary);
         }
 
         .btn-admin:hover {
-            background-color: #455A64;
+            box-shadow: 0px 15px 25px rgba(112, 144, 176, 0.25);
+            transform: translateY(-3px);
         }
 
-        /* Responsif untuk layar kecil */
-        @media (max-width: 600px) {
-            .header h1 { font-size: 2rem; }
-            .header p { font-size: 1rem; }
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .top-header h1 { font-size: 1.8rem; }
+            .grid-container { gap: 16px; }
+            .card { padding: 25px 15px; }
         }
     </style>
 </head>
 <body>
 
-    <header class="header">
-        <h1>Halo, Selamat Datang!</h1>
-        <p>Mari membaca dan menjelajah dunia ilmu bersama Ezo dan Hera 🚀</p>
-    </header>
+    <div class="top-header">
+        <h1>Sistem Perpustakaan</h1>
+        <p>Akses layanan perpustakaan secara digital dengan mudah dan cepat.</p>
+    </div>
 
-    <main class="menu-container">
+    <div class="grid-container">
         
-        <div class="menu-card card-buku">
-            <div class="icon">📚</div>
+        <div class="card">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-book"></i>
+            </div>
             <h3>Daftar Buku</h3>
         </div>
 
-        <div class="menu-card card-pinjam">
-            <div class="icon">🎒</div>
+        <div class="card">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-hand-holding-hand"></i>
+            </div>
             <h3>Peminjaman</h3>
         </div>
 
-        <div class="menu-card card-kembali">
-            <div class="icon">📥</div>
+        <div class="card">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-right-left"></i>
+            </div>
             <h3>Pengembalian</h3>
         </div>
 
-        <div class="menu-card card-absen">
-            <div class="icon">📝</div>
+        <div class="card">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-id-card-clip"></i>
+            </div>
             <h3>Absen Anggota</h3>
         </div>
 
-        <div class="menu-card card-anggota">
-            <div class="icon">👥</div>
+        <div class="card">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-users"></i>
+            </div>
             <h3>Data Anggota</h3>
         </div>
 
-    </main>
+    </div>
 
-    <footer class="admin-section">
+    <div class="admin-wrapper">
         <button class="btn-admin">
-            <span>⚙️</span> Halaman Admin
+            <i class="fa-solid fa-shield-halved"></i>
+            Akses Admin
         </button>
-    </footer>
+    </div>
 
 </body>
 </html>
